@@ -1,0 +1,50 @@
+
+gofiletop;
+
+setcompatiblemode 0x0F;
+begingroupundo;
+replaceallfast "><" , ">\\n<" , regular, nohilight;
+if( ! result )  beep;
+endgroupundo 1;
+gofiletop;
+down;
+
+#indent = 0;
+#line_count = lineno;
+
+while (#line_count <= linecount2){
+	golineend;
+	#end = x;
+	golinetop;
+	$str = gettext(x,y,#end,y);
+
+
+	if(leftstr($str, 2) == "</"){
+		#indent = #indent - 1;
+		call InsertIndentSub #indent;
+	}else if(rightstr($str, 2) == "/>"){
+		call InsertIndentSub #indent;
+	}else if(strstr($str, "</") > 0){
+		call InsertIndentSub #indent;
+
+	}else{
+		call InsertIndentSub #indent;
+		#indent = #indent + 1;
+	}
+
+	down;
+	#line_count = #line_count + 1;
+}
+
+golineend;
+insert "\n";
+
+endmacro;
+
+InsertIndentSub:
+	##count = ##1;
+	while(##count > 0){
+		insert "  ";
+		##count = ##count - 1;
+	}
+	return;
