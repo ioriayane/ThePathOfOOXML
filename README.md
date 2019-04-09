@@ -8,6 +8,6 @@ Office Open XMLを解説する本です。
 以下のサイトで販売します。
 
 * BOOTH：https://relog.booth.pm/items/1306670
-* BOOK☆WALKER：
+* BOOK☆WALKER：https://bookwalker.jp/de7a671834-355e-41cb-bcec-ad5c9b5cbaa1/
 * Kindle：https://www.amazon.co.jp/dp/B07QBMHMY4
 
